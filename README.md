@@ -1,8 +1,8 @@
 # Facial-and-Speech-Emotion-Recognition
 Facial and Speech emotion recognition using deep learning 
 
-Facial expression recognition is the part of Facial recognition which is gaining more importance and the need for it increases tremendously. Though there are methods to identify expressions using machine learning and Artificial Intelligence techniques, this work attempts to use deep learning and image classification method to recognize expressions and classify the expressions according to the images. Deep Learning is used for facial expression recognition with the FER-2013 dataset. The final accuracy of this expression recognition model using the MobileNet v2 Model is 93%. 
-Modern speech recognition systems have come a long way since their ancient counterparts. They can recognize speech from multiple speakers and have enormous vocabularies in numerous languages. The first component of speech recognition is, of course, speech. Speech must be converted from physical sound to an electrical signal with a microphone, and then to digital data with an analogue-to-digital converter. Once digitized, several models can be used to transcribe the audio to text. CNN is used for speech recognition with the RAVDESS dataset. The final accuracy of this expression recognition model using the CNN Model is 98%.
+Facial expression recognition is the part of Facial recognition which is gaining more importance and the need for it increases tremendously. Though there are methods to identify expressions using machine learning and Artificial Intelligence techniques, this work attempts to use deep learning and image classification method to recognize expressions and classify the expressions according to the images. Deep Learning is used for facial expression recognition with the FER-2013 dataset. The training accuracy of this emotion recognition model using the MobileNet v2 Model is 93%. 
+Modern speech recognition systems have come a long way since their ancient counterparts. They can recognize speech from multiple speakers and have enormous vocabularies in numerous languages. The first component of speech recognition is, of course, speech. Speech must be converted from physical sound to an electrical signal with a microphone, and then to digital data with an analogue-to-digital converter. Once digitized, several models can be used to transcribe the audio to text. CNN is used for speech recognition with the RAVDESS dataset. The training accuracy of this emotion recognition model using the CNN Model is 99% and validation accuracy of 80%.
 
 <h2>Dataset Used:</h3>
 
@@ -17,8 +17,6 @@ For Facial Emotion Recognition, we usedFER13 dataset, the images were of dimensi
 
 The deep learning model used for training purposes is a Transfer Learning Model-MobileNetV2(untrained). The MobileNetV2 contains an initially fully convolution layer with 32 filters, followed by 19 residual bottleneck layers. The output layer of the model has 1000 prediction classes, we require 6, so we drop the output layer using Keras layers and add an output layer with softmax function.
 
-We trained the model with 30 epochs and a batch size of 15, the training took 290 minutes and we got a training accuracy of 93%.
-
 For the live implementation of emotion recognition, we used the cv2 library and haar cascade algorithm to crop out the face during the live session. We get the probability of each emotion prediction live.
 
 <h2>Speech Emotion Recognition</h2>
@@ -27,4 +25,3 @@ For speech emotion recognition, at first, the data has to be augmented an RAVDES
 The labelled data is transformed into a numerical label, using the OneHotEncoder function provided by sklearn. This dataset is then split into 3 parts for training, validating and testing. 
 
 The training and validation set is passed to a convolutional neural network with 9 conv layers. After every 3 conv layers, a dropout layer and max-pooling layer is added to reduce the complexity and overfitting. Kernel size of 5 and strides size is set to 2 with activation function relu. Finally, a dense layer is used with output units set to 6 and activation used is softmax. This model is compiled with adam optimizer and categorical_crossentropy loss function. 
-The Training was completed in 28 epochs with an average of 3.5 sec/epoch, the batch size used was 15
